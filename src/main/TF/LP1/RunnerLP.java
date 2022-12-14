@@ -17,6 +17,7 @@ public class RunnerLP {
 		boolean estaMundial;
 
 		Funcoes funcoes = new Funcoes();
+		
 
 		do {
 			Scanner ler = new Scanner(System.in);
