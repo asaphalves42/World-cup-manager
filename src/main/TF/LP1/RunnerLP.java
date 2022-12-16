@@ -15,15 +15,15 @@ public class RunnerLP {
 		int dataDeInaug;
 		int ranking;
 		boolean estaMundial;
+		int nEquipas = 0;
+		
+		Equipa[] equipas = new Equipa[24];
 
 		Funcoes funcoes = new Funcoes();
-		
+		Scanner ler = new Scanner(System.in);
 
 		do {
-			Scanner ler = new Scanner(System.in);
 
-			Equipa[] equipas = new Equipa[24];
-			
 			System.out.println("**************************************");
 
 			System.out.println("Bem vindo ao mundial do Catar de 2022!");
@@ -60,19 +60,21 @@ public class RunnerLP {
 				System.out.println("\n");
 
 				Equipa novaEquipa = new Equipa(nome, federac, dataDeInaug, ranking, estaMundial);
-				equipas[0] = novaEquipa;
-
+				
+				equipas[nEquipas] = novaEquipa;
+				nEquipas++;
+				
 				break;
 
 			case 2:
 				System.out.println("Qual equipa queres deletar?");
 				nome = ler.next();
-				funcoes.listarEquipas(equipas);
+				funcoes.listarEquipas(equipas, nEquipas);
 				//funcao para deletar equipas
 				break;
 
 			case 3:
-				funcoes.listarEquipas(equipas);
+				funcoes.listarEquipas(equipas, nEquipas);
 				break;
 
 			case 4:
@@ -88,6 +90,6 @@ public class RunnerLP {
 				System.out.println("Escolha desconhecida!");
 			}
 
-		} while (escolha != 5);
+		} while (escolha <=4);
 	}
 }

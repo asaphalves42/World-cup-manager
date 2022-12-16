@@ -59,8 +59,8 @@ public class Equipa {
 
 	@Override
 	public String toString() {
-		return "Equipas [nome=" + nome + ", federacao=" + federacao + ", dataInaug=" + dataInaug + ", ranking="
-				+ ranking + ", presenteOuNao=" + presenteOuNao + "]";
+		return "Equipas [nome = " + nome + ", federacao = " + federacao + ", dataInaug = " + dataInaug + ", ranking = "
+				+ ranking + ", presenteOuNao = " + presenteOuNao + "]";
 	}
 	
 	
