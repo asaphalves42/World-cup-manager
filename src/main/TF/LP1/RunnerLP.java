@@ -23,8 +23,12 @@ public class RunnerLP {
 			Scanner ler = new Scanner(System.in);
 
 			Equipa[] equipas = new Equipa[24];
+			
+			System.out.println("**************************************");
 
 			System.out.println("Bem vindo ao mundial do Catar de 2022!");
+			
+			System.out.println("**************************************");
 
 			System.out.println("\n");
 
@@ -39,23 +43,19 @@ public class RunnerLP {
 
 			switch (escolha) {
 			case 1:
-				System.out.println("Insira o nome da equipa ");
+				System.out.print("Insira o nome da equipa: ");
 				nome = ler.next();
-				System.out.println("\n");
 
-				System.out.println("Federação: ");
+				System.out.print("Federação: ");
 				federac = ler.next();
-				System.out.println("\n");
 
-				System.out.println("Data de inauguração: ");
+				System.out.print("Ano de inauguração: ");
 				dataDeInaug = ler.nextInt();
-				System.out.println("\n");
-
-				System.out.println("Ranking: ");
+				
+				System.out.print("Ranking: ");
 				ranking = ler.nextInt();
-				System.out.println("\n");
-
-				System.out.println("Está no mundial? ");
+				
+				System.out.print("Está no mundial? ");
 				estaMundial = ler.nextBoolean();
 				System.out.println("\n");
 
