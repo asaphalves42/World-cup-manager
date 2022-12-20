@@ -2,68 +2,56 @@ package equipes.TF.LP1;
 
 
 public class Equipa {
-	private String nome;
-	private String federacao;
-	private int dataInaug;
-	private int ranking;
-	private boolean presenteOuNao;
 	
-	public Equipa(String nome, String federacao, int dataInaug, int ranking, boolean presenteOuNao) {
-		super();
-		this.nome = nome;
-		this.federacao = federacao;
-		this.dataInaug = dataInaug;
-		this.ranking = ranking;
-		this.presenteOuNao = presenteOuNao;
+	private String federacao;
+	private String nomeEquipa;
+	private int inauguracao;
+	private int ranking;
+	private boolean mundial;
+
+	public Equipa() {
+
+	}
+	
+	public String GetnomeEquipa() {
+		return nomeEquipa;
 	}
 
-	public String getNome() {
-		return nome;
+	public void SetnomeEquipa(String valor) {
+		nomeEquipa = valor;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getFederacao() {
+	public String GetFederacao() {
 		return federacao;
 	}
 
-	public void setFederacao(String federacao) {
-		this.federacao = federacao;
+	public void SetFederacao(String valor) {
+		federacao = valor;
 	}
 
-	public int getDataInaug() {
-		return dataInaug;
+	public int GetInaguracao() {
+		return inauguracao;
 	}
 
-	public void setDataInaug(int dataInaug) {
-		this.dataInaug = dataInaug;
+	public void SetInaguracao(int valor) {
+		inauguracao = valor;
 	}
 
-	public int getRanking() {
+	public int GetRanking() {
 		return ranking;
 	}
 
-	public void setRanking(int ranking) {
-		this.ranking = ranking;
+	public void SetRanking(int valor) {
+		ranking = valor;
 	}
 
-	public boolean isPresenteOuNao() {
-		return presenteOuNao;
+	public boolean GetMundial() {
+		return mundial;
 	}
 
-	public void setPresenteOuNao(boolean presenteOuNao) {
-		this.presenteOuNao = presenteOuNao;
+	public void SetMundial(boolean valor) {
+		mundial = valor;
 	}
 
-	@Override
-	public String toString() {
-		return "Equipas [nome = " + nome + ", federacao = " + federacao + ", dataInaug = " + dataInaug + ", ranking = "
-				+ ranking + ", presenteOuNao = " + presenteOuNao + "]";
-	}
-	
-	
-	
 }
 
