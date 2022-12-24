@@ -148,7 +148,7 @@ public class Aplicacao {
 		Boolean encontrei = false;
 		for (int i = 0; i < this.equipas.length; i++) {
 			if (this.equipas[i] != null) {
-				if (this.equipas[i].GetnomeEquipa().equals(nomeEquipa)| encontrei == true) {
+				if (this.equipas[i].GetnomeEquipa().equals(nomeEquipa) | encontrei == true) {
 					// encontrei a equipa então vou colocar o proximo elemento na posição deste, ou
 					// seja, todos as proximos equipas da lista andam uma casa para trás
 					this.equipas[i] = this.equipas[i + 1];
@@ -191,14 +191,50 @@ public class Aplicacao {
 	private void EditarEquipa() {
 
 		System.out.println("Qual equipa pretende editar?");
-		ListarEquipas();
-
+		
 		String nomeEquipa = ler.next();
-
+		
+		Boolean encontrei = false;
 		for (int i = 0; i < equipas.length; i++) {
-			if (equipas[i].GetnomeEquipa() == nomeEquipa) {
+			if (equipas[i] != null)
+				if (equipas[i].GetnomeEquipa().equals(nomeEquipa) | encontrei == true) {
+					this.equipas[i] = this.equipas[i + 1];
+					encontrei = true;
+				}
+		}
+		if (encontrei == true) {
+			Equipa nova = new Equipa();
 
+			System.out.println("Indique o nome da nova equipa:");
+			nova.SetnomeEquipa(ler.next());
+
+			System.out.println("Indique a federação da nova equipa:");
+			nova.SetFederacao(ler.next());
+
+			System.out.println("Indique o ano de inauguração:");
+			nova.SetInaguracao(ler.nextInt());
+
+			System.out.println("Indique o ranking da equipa:");
+			nova.SetRanking(ler.nextInt());
+
+			System.out.println("Indique vai ao mundial:");
+			String mundial = ler.next();
+
+			if (mundial.equals("sim")) {
+				nova.SetMundial(true);
+			} else {
+				nova.SetMundial(false);
 			}
+			// adiciono a equipa na ultima posição do array
+			this.equipas[this.ContagemEquipas()] = nova;
+
+			// informo que a equipa foi adicionada
+			System.out.println("Equipa editada com sucesso!");
+
+			// volta ao menu de equipas
+			ApresentarMenuEquipas();
+		}else {
+			System.out.println("Equipa não encontrada");
 		}
 
 	}
