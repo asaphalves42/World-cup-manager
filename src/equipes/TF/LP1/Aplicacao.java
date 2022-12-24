@@ -14,26 +14,26 @@ public class Aplicacao {
 	}
 
 	/*
-	 * Variavies Gerais - Todas as funcıes.
+	 * Variavies Gerais - Todas as func√µes.
 	 */
 	Equipa[] equipas;
 	Scanner ler = new Scanner(System.in);
 	String pastaFicheiros = "C:\\aplicacao\\";
 
 	/*
-	 * CONTROLO DE A«’ES
+	 * CONTROLO DE A√á√ïES
 	 */
 	public void Iniciar() {
-		System.out.println(" -<<<< APLICA«¬O DO MUNDIAL >>>>-");
+		System.out.println(" -<<<< APLICA√á√ÇO DO MUNDIAL >>>>-");
 		// this.LerDadosFicheiros();
 		this.ApresentarMenuPrincipal();
 	}
 
-	// FunÁıes menu principal
+	// Fun√ß√µes menu principal
 	public void ApresentarMenuPrincipal() {
 		System.out.println("");
 		System.out.println(" ## MENU PRINCIPAL ##");
-		System.out.println("(Selecione uma opÁ„o)");
+		System.out.println("(Selecione uma op√ß√£o)");
 
 		System.out.println("1. Equipas");
 		System.out.println("2. Torneio");
@@ -49,22 +49,22 @@ public class Aplicacao {
 			this.ApresentarMenuTorneio();
 			break;
 		case 3: {
-			// gravo a informaÁ„o para ficheiros e sai
+			// gravo a informa√ß√£o para ficheiros e sai
 			// this.GravarDadosParaFicheiros();
 			break;
 		}
 		default:
-			System.out.println("OpÁ„o inv·lida.");
+			System.out.println("Op√ß√£o inv√°lida.");
 			this.ApresentarMenuPrincipal();
 		}
 
 	}
 
-	// FunÁıes para gerir as equipas
+	// Fun√ß√µes para gerir as equipas
 	public void ApresentarMenuEquipas() {
 		System.out.println("");
 		System.out.println(" ## EQUIPAS ##");
-		System.out.println("(Selecione uma opÁ„o)");
+		System.out.println("(Selecione uma op√ß√£o)");
 
 		System.out.println("1. Listar equipa");
 		System.out.println("2. Adicionar equipa");
@@ -90,31 +90,31 @@ public class Aplicacao {
 			this.ApresentarMenuPrincipal();
 			break;
 		default:
-			System.out.println("!!!! OpÁ„o inv·lida !!!");
+			System.out.println("!!!! Op√ß√£o inv√°lida !!!");
 			this.ApresentarMenuEquipas();
 		}
 	}
 
-	// FunÁıes para gerir o torneio
+	// Fun√ß√µes para gerir o torneio
 	public void ApresentarMenuTorneio() {
 
 	}
 
 	/*
-	 * GEST¬O DE EQUIPAS
+	 * GEST√ÇO DE EQUIPAS
 	 */
 
 	public void AdicionarEquipa() {
-		// PeÁo os dados ao utilizador
+		// Pe√ßo os dados ao utilizador
 		Equipa nova = new Equipa();
 
 		System.out.println("Indique o nome  da equipa:");
 		nova.SetnomeEquipa(ler.next());
 
-		System.out.println("Indique a federaÁ„o da equipa:");
+		System.out.println("Indique a federa√ß√£o da equipa:");
 		nova.SetFederacao(ler.next());
 
-		System.out.println("Indique o ano de inauguraÁ„o:");
+		System.out.println("Indique o ano de inaugura√ß√£o:");
 		nova.SetInaguracao(ler.nextInt());
 
 		System.out.println("Indique o ranking da equipa:");
@@ -128,7 +128,7 @@ public class Aplicacao {
 		} else {
 			nova.SetMundial(false);
 		}
-		// adiciono a equipa na ultima posiÁ„o do array
+		// adiciono a equipa na ultima posi√ß√£o do array
 		this.equipas[this.ContagemEquipas()] = nova;
 
 		// informo que a equipa foi adicionada
@@ -148,9 +148,15 @@ public class Aplicacao {
 		Boolean encontrei = false;
 		for (int i = 0; i < this.equipas.length; i++) {
 			if (this.equipas[i] != null) {
+<<<<<<< HEAD
 				if (this.equipas[i].GetnomeEquipa().equals(nomeEquipa) | encontrei == true) {
 					// encontrei a equipa ent„o vou colocar o proximo elemento na posiÁ„o deste, ou
 					// seja, todos as proximos equipas da lista andam uma casa para tr·s
+=======
+				if (this.equipas[i].GetnomeEquipa().equals(nomeEquipa)| encontrei == true) {
+					// encontrei a equipa ent√£o vou colocar o proximo elemento na posi√ß√£o deste, ou
+					// seja, todos as proximos equipas da lista andam uma casa para tr√°s
+>>>>>>> eab420defb82c1dd6453ebe8a940481e940bfe5d
 					this.equipas[i] = this.equipas[i + 1];
 					encontrei = true;
 				}
@@ -160,24 +166,24 @@ public class Aplicacao {
 		if (encontrei == true) {
 			System.out.println("Equipa eliminada com sucesso.");
 		} else {
-			System.out.println("Equipa n„o encontrada");
+			System.out.println("Equipa n√£o encontrada");
 		}
 		ApresentarMenuEquipas();
 	}
 
 	public void ListarEquipas() {
-		// se o array est· vazio, ou seja, n„o existem equipas
+		// se o array est√° vazio, ou seja, n√£o existem equipas
 		if (this.ContagemEquipas() == 0) {
-			System.out.println("N„o existem equipas registadas.");
+			System.out.println("N√£o existem equipas registadas.");
 		} else {
-			System.out.println("\n-------------------------\n"); // o barra n d· uma quebra de linha
+			System.out.println("\n-------------------------\n"); // o barra n d√° uma quebra de linha
 			for (int i = 0; i < this.equipas.length; i++) {
-				// vou correr todas as equipas do array e apresentar informaÁ„o. so apresento a
-				// equipa no array se estiver preenchida essa posiÁ„o do array
+				// vou correr todas as equipas do array e apresentar informa√ß√£o. so apresento a
+				// equipa no array se estiver preenchida essa posi√ß√£o do array
 				if (this.equipas[i] != null) {
 					Equipa equipa = this.equipas[i];
-					System.out.println("Equipa " + (i + 1) + "\nNome: " + equipa.GetnomeEquipa() + "\nFederaÁ„o: "
-							+ equipa.GetFederacao() + "\nAno InauguraÁ„o: " + equipa.GetInaguracao() + "\nRanking: "
+					System.out.println("Equipa " + (i + 1) + "\nNome: " + equipa.GetnomeEquipa() + "\nFedera√ß√£o: "
+							+ equipa.GetFederacao() + "\nAno Inaugura√ß√£o: " + equipa.GetInaguracao() + "\nRanking: "
 							+ equipa.GetRanking() + "\nMundial: " + equipa.GetMundial());
 					// adiciono uma quebra de linha por cada equipa
 					System.out.println("");
@@ -188,6 +194,7 @@ public class Aplicacao {
 		ApresentarMenuEquipas();
 	}
 
+<<<<<<< HEAD
 	private void EditarEquipa() {
 
 		System.out.println("Qual equipa pretende editar?");
@@ -204,6 +211,65 @@ public class Aplicacao {
 		}
 		if (encontrei == true) {
 			Equipa nova = new Equipa();
+=======
+	public void EditarEquipa() {
+
+		
+		
+		System.out.println("Indique o nome da equipa que pretende editar");
+		String nomeEquipa = ler.next();
+
+		// vou correr todo o array para verificar se existe alguma equipa com aquele
+		// nome
+		Boolean encontrei = false;
+		for (int i = 0; i < this.equipas.length; i++) {
+			if (this.equipas[i] != null) {
+				if (this.equipas[i].GetnomeEquipa().equals(nomeEquipa)| encontrei == true) {
+					// encontrei a equipa ent√£o vou colocar o proximo elemento na posi√ß√£o deste, ou
+					// seja, todos as proximos equipas da lista andam uma casa para tr√°s
+					this.equipas[i] = this.equipas[i + 1];
+					encontrei = true;
+				}
+			}
+		}
+		Equipa nova = new Equipa();
+		System.out.println("Indique o nome  da equipa:");
+		nova.SetnomeEquipa(ler.next());
+
+		System.out.println("Indique a federa√ß√£o da equipa:");
+		nova.SetFederacao(ler.next());
+
+		System.out.println("Indique o ano de inaugura√ß√£o:");
+		nova.SetInaguracao(ler.nextInt());
+
+		System.out.println("Indique o ranking da equipa:");
+		nova.SetRanking(ler.nextInt());
+
+		System.out.println("Indique vai ao mundial:");
+		String mundial = ler.next();
+
+		if (mundial.equals("sim")) {
+			nova.SetMundial(true);
+		} else {
+			nova.SetMundial(false);
+		}
+		// adiciono a equipa na ultima posi√ß√£o do array
+		this.equipas[this.ContagemEquipas()] = nova;
+
+		// informo que a equipa foi adicionada
+		System.out.println("Equipa adicionada com sucesso!");
+
+		// volta ao menu de equipas
+		ApresentarMenuEquipas();
+		
+		
+		AdicionarEquipa();
+		
+		
+	}
+		/*for (int i = 0; i < equipas.length; i++) {
+			if (equipas[i].GetnomeEquipa() == nomeEquipa) {
+>>>>>>> eab420defb82c1dd6453ebe8a940481e940bfe5d
 
 			System.out.println("Indique o nome da nova equipa:");
 			nova.SetnomeEquipa(ler.next());
@@ -238,12 +304,13 @@ public class Aplicacao {
 		}
 
 	}
+	*/
 
 	private int ContagemEquipas() {
 		int contador = 0;
 		for (int i = 0; i < this.equipas.length; i++) {
-			// vou correr todas as equipas do array e apresentar informaÁ„o. so apresento a
-			// equipa no array se estiver preenchida essa posiÁ„o do array
+			// vou correr todas as equipas do array e apresentar informa√ß√£o. so apresento a
+			// equipa no array se estiver preenchida essa posi√ß√£o do array
 			if (this.equipas[i] != null) {
 				contador++;
 			} else {
