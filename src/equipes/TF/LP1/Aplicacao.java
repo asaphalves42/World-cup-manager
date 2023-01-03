@@ -14,14 +14,14 @@ public class Aplicacao {
 	}
 
 	/*
-	 * Variavies Gerais - Todas as funcÃµes.
+	 * Variavies Gerais - Todas as funções.
 	 */
 	Equipa[] equipas;
 	Scanner ler = new Scanner(System.in);
 	String pastaFicheiros = "C:\\aplicacao\\";
 
 	/*
-	 * CONTROLO DE AÃ‡Ã•ES
+	 * CONTROLO DE funções
 	 */
 	public void Iniciar() {
 		System.out.println(" -<<<< APLICAÇÃO DO MUNDIAL >>>>-");
