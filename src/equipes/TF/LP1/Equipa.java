@@ -1,16 +1,24 @@
 package equipes.TF.LP1;
 
+import java.util.Random;
 
 public class Equipa {
 	
+	private int id;
 	private String federacao;
 	private String nomeEquipa;
+	private String continente;
 	private int inauguracao;
 	private int ranking;
 	private boolean mundial;
 
 	public Equipa() {
-
+		Random gerador = new Random();
+		this.id = gerador.nextInt(100000, 900000);
+	}
+	
+	public int GetIdEquipa() {
+		return id;
 	}
 	
 	public String GetnomeEquipa() {
@@ -19,6 +27,14 @@ public class Equipa {
 
 	public void SetnomeEquipa(String valor) {
 		nomeEquipa = valor;
+	}
+	
+	public String GetContinenteEquipa() {
+		return continente;
+	}
+
+	public void SetContinenteEquipa(String valor) {
+		continente = valor;
 	}
 
 	public String GetFederacao() {
