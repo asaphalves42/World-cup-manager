@@ -1,10 +1,10 @@
-package equipes.TF.LP1;
+package torneio.TF.LP1;
 
 import java.util.Random;
 
 public class Equipa {
 	
-	private int id;
+	private String id;
 	private String federacao;
 	private String nomeEquipa;
 	private String continente;
@@ -13,19 +13,22 @@ public class Equipa {
 	private boolean mundial;
 
 	public Equipa() {
-		Random gerador = new Random();
-		this.id = gerador.nextInt(100000, 900000);
+		
 	}
 	
-	public int GetIdEquipa() {
+	public String GetIdEquipa() {
 		return id;
 	}
 	
-	public String GetnomeEquipa() {
+	public void SetIdEquipa(String id) {
+		this.id = id;
+	}
+	
+	public String GetNomeEquipa() {
 		return nomeEquipa;
 	}
 
-	public void SetnomeEquipa(String valor) {
+	public void SetNomeEquipa(String valor) {
 		nomeEquipa = valor;
 	}
 	

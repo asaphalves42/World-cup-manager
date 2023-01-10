@@ -4,25 +4,27 @@ import java.io.File;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import torneio.TF.LP1.*;
+
 public class Aplicacao {
 
-	public Aplicacao() {
-		this.equipas = new Equipa[100];
-		this.InicializarEquipas();
+	public Aplicacao() {		
+		this.LerFicheiros();
 	}
 
 	/*
-	 * Variavies Gerais - Todas as fun��es.
-	 */
-	Equipa[] equipas;
+	 * Variavies Gerais - Todas as funcões.
+	 */	
+	Torneio torneio = new Torneio();
 	Scanner ler = new Scanner(System.in);
 	String pastaFicheiros = "C:\\aplicacao\\";
 
 	/*
-	 * CONTROLO DE fun��es
+	 * CONTROLO DE AÇÕES
 	 */
 	public void Iniciar() {
 		System.out.println(" -<<<< APLICA��O DO MUNDIAL >>>>-");
@@ -51,7 +53,7 @@ public class Aplicacao {
 			break;
 		case 3: {
 			// gravo a informa��o para ficheiros e sai
-			// this.GravarDadosParaFicheiros();
+			this.GravarFicheiros();
 			break;
 		}
 		default:
@@ -70,7 +72,7 @@ public class Aplicacao {
 		System.out.println("1. Listar equipa");
 		System.out.println("2. Adicionar equipa");
 		System.out.println("3. Editar equipa");
-		System.out.println("4. Eliminar equipa");
+		System.out.println("4. Eliminar equipa");		
 		System.out.println("5. Menu Principal");
 
 		switch (this.ler.nextInt()) {
@@ -96,9 +98,74 @@ public class Aplicacao {
 		}
 	}
 
-	// Fun��es para gerir o torneio
+	// Funções para gerir o torneio
 	public void ApresentarMenuTorneio() {
+		System.out.println("");
+		System.out.println(" ## TORNEIO ##");
+		System.out.println("(Selecione uma opção)");
 
+		System.out.println("1. Gerar Torneio");
+		System.out.println("2. Listar grupo A");
+		System.out.println("3. Listar grupo B");
+		System.out.println("4. Listar grupo C");
+		System.out.println("5. Listar grupo D");
+		System.out.println("6. Listar grupo E");
+		System.out.println("7. Listar grupo F");
+		System.out.println("8. Listar grupo G");
+		System.out.println("9. Listar grupo H");
+		System.out.println("10. Listar todos grupos");
+		System.out.println("0. Menu Principal");
+
+		switch (this.ler.nextInt()) {
+		case 1:
+			if (this.torneio.GerarFaseGrupos() == true) {
+				System.out.println("Fase de grupos gerada");
+			}else {
+				System.out.println("Não foi possivel gerar a fase de grupos. Deve existir 32 equipas.");					
+			}
+			this.torneio.GerarFaseGrupos();
+			this.ApresentarMenuTorneio();
+			break;
+		case 2:
+			this.ListarGrupo("A");
+			ApresentarMenuTorneio();
+			break;
+		case 3:
+			this.ListarGrupo("B");
+			ApresentarMenuTorneio();
+			break;
+		case 4:
+			this.ListarGrupo("C");
+			ApresentarMenuTorneio();
+			break;
+		case 5:
+			this.ListarGrupo("D");
+			ApresentarMenuTorneio();
+			break;
+		case 6:
+			this.ListarGrupo("E");
+			ApresentarMenuTorneio();
+			break;
+		case 7:
+			this.ListarGrupo("F");
+			ApresentarMenuTorneio();
+			break;			
+		case 8:
+			this.ListarGrupo("G");
+			ApresentarMenuTorneio();
+			break;
+		case 9:
+			this.ListarGrupo("H");
+			ApresentarMenuTorneio();
+			break;
+		case 10:			
+			this.ListasTodosGrupos();
+			ApresentarMenuTorneio();
+			break;
+		default:
+			System.out.println("!!!! Opçãoo inválida !!!");
+			this.ApresentarMenuEquipas();
+		}
 	}
 
 	/*
@@ -110,7 +177,7 @@ public class Aplicacao {
 		Equipa nova = new Equipa();
 
 		System.out.println("Indique o nome  da equipa:");
-		nova.SetnomeEquipa(ler.next());
+		nova.SetNomeEquipa(ler.next());
 
 		System.out.println("Indique a federa��o da equipa:");
 		nova.SetFederacao(ler.next());
@@ -129,8 +196,8 @@ public class Aplicacao {
 		} else {
 			nova.SetMundial(false);
 		}
-		// adiciono a equipa na ultima posi��o do array
-		this.equipas[this.ContagemEquipas()] = nova;
+		// adiciono a equipa na ultima posi��o do array~
+		this.torneio.InserirEquipa(nova);
 
 		// informo que a equipa foi adicionada
 		System.out.println("Equipa adicionada com sucesso!");
@@ -140,26 +207,10 @@ public class Aplicacao {
 	}
 
 	public void EliminarEquipa() {
-
-		System.out.println("Indique o nome da equipa que pretende eliminar:");
-		String nomeEquipa = ler.next();
-
-		// vou correr todo o array para verificar se existe alguma equipa com aquele
-		// nome
-		Boolean encontrei = false;
-		for (int i = 0; i < this.equipas.length; i++) {
-			if (this.equipas[i] != null) {
-				if (this.equipas[i].GetnomeEquipa().equals(nomeEquipa) || encontrei == true) {
-					// encontrei a equipa ent�o vou colocar o proximo elemento na posi��o deste, ou
-					// seja, todos as proximos equipas da lista andam uma casa para tr�s
-					
-					this.equipas[i] = this.equipas[i + 1];
-					encontrei = true;
-				}
-			}
-		}
-
-		if (encontrei == true) {
+		System.out.println("Indique o identificador da equipa que pretende eliminar:");
+		String idEquipa = ler.next();
+		// vou correr todo o array para verificar se existe alguma equipa com aquele 	
+		if (this.torneio.EliminarEquipa(idEquipa) == true) {
 			System.out.println("Equipa eliminada com sucesso.");
 		} else {
 			System.out.println("Equipa n�o encontrada");
@@ -169,17 +220,18 @@ public class Aplicacao {
 
 	public void ListarEquipas() {
 		// se o array esta� vazio, ou seja, n�o existem equipas
-		if (this.ContagemEquipas() == 0) {
-			System.out.println("N�o existem equipas registadas.");
+		if (this.torneio.ContagemEquipas() == 0) {
+			System.out.println("Não existem equipas registadas.");
 		} else {
 			System.out.println("\n-------------------------\n"); // o barra n da� uma quebra de linha
-			for (int i = 0; i < this.equipas.length; i++) {
+			
+			for (int i = 0; i < this.torneio.ObterEquipas().length; i++) {
 				// vou correr todas as equipas do array e apresentar informa��o. so apresento
 				// a
 				// equipa no array se estiver preenchida essa posi��oo do array
-				if (this.equipas[i] != null) {
-					Equipa equipa = this.equipas[i];
-					System.out.println("Equipa " + (equipa.GetIdEquipa()) + "\nNome: " + equipa.GetnomeEquipa() + "\nFedera��oo: "
+				if (this.torneio.ObterEquipas()[i] != null) {
+					Equipa equipa = this.torneio.ObterEquipas()[i];
+					System.out.println("Equipa " + (equipa.GetIdEquipa()) + "\nNome: " + equipa.GetNomeEquipa() + "\nFedera��oo: "
 							+ equipa.GetFederacao() + "\nAno Inaugura��o: " + equipa.GetInaguracao() + "\nRanking: "
 							+ equipa.GetRanking() + "\nMundial: " + equipa.GetMundial());
 					// adiciono uma quebra de linha por cada equipa
@@ -195,23 +247,15 @@ public class Aplicacao {
 
 	public void EditarEquipa() {
 
-		System.out.println("Indique o nome da equipa que pretende editar");
-		String nomeEquipa = ler.next();
-
-		// vou correr todo o array para verificar se existe alguma equipa com aquele		
-		Equipa equipaEncontrada = null;
-		for (int i = 0; i < this.equipas.length; i++) {
-			if (this.equipas[i] != null) {
-				if (this.equipas[i].GetnomeEquipa().toLowerCase().equals(nomeEquipa.toLowerCase())) {					
-					equipaEncontrada = this.equipas[i];
-					break;
-				}
-			}
-		}
+		System.out.println("Indique o identifiador da equipa que pretende editar:");
+		String idEquipa = ler.next();
+		
+		// obter da lista de equipas por ID
+		Equipa equipaEncontrada = this.torneio.ObterEquipa(idEquipa);				
 		
 		if (equipaEncontrada != null) {
 			System.out.println("Indique o nome da nova equipa:");
-			equipaEncontrada.SetnomeEquipa(ler.next());
+			equipaEncontrada.SetNomeEquipa(ler.next());
 
 			System.out.println("Indique a federa��o da nova equipa:");
 			equipaEncontrada.SetFederacao(ler.next());
@@ -240,51 +284,105 @@ public class Aplicacao {
 		// volta ao menu de equipas
 		ApresentarMenuEquipas();
 
-	}
-	
-	private int ContagemEquipas() {
-		int contador = 0;
-		for (int i = 0; i < this.equipas.length; i++) {
-			// vou correr todas as equipas do array e apresentar informa��o, so apresento
-			// a
-			// equipa no array se estiver preenchida essa posi��o do array
-			if (this.equipas[i] != null) {
-				contador++;
-			} else {
-				break;
-			}
-		}
-		return contador;
-	}
-	
-	
-	private void InicializarEquipas() {
-		Equipa novo = new Equipa();
-		novo.SetnomeEquipa("Portugal");
-		novo.SetFederacao("Portugal");
-		novo.SetMundial(true);
-		novo.SetRanking(5);
-		novo.SetInaguracao(2000);
-		novo.SetContinenteEquipa("europa");
-		this.equipas[0] = novo;
-		
-		novo = new Equipa();
-		novo.SetnomeEquipa("Espanha");
-		novo.SetFederacao("Espanha");
-		novo.SetMundial(true);
-		novo.SetRanking(5);		
-		novo.SetInaguracao(2000);
-		novo.SetContinenteEquipa("europa");
-		this.equipas[1] = novo;	
-		
-		novo = new Equipa();
-		novo.SetnomeEquipa("França");
-		novo.SetFederacao("França");
-		novo.SetMundial(true);
-		novo.SetRanking(5);
-		novo.SetInaguracao(2000);
-		novo.SetContinenteEquipa("europa");
-		this.equipas[2] = novo;	
-	}
+	}			
 
+	/*
+	 * GESTÃO DE TORNEIO
+	 */
+	
+	public void ListarGrupo(String codigo) {
+		Grupo grupo = this.torneio.GetGrupo(codigo);
+		if (grupo != null) {
+			System.out.println("--- GRUPO " + codigo + " ---");
+			
+			for (int i = 0 ; i < grupo.GetEquipas().length; i++) {
+				System.out.println(i + ". " + grupo.GetEquipas()[i].GetnomeEquipa());	
+			}							
+			
+		} else {
+			System.out.println("Grupo não existente, deve gerar o torneio.");
+		}
+	}
+	
+	public void ListasTodosGrupos() {		
+		Grupo[] grupos = this.torneio.GetGrupos();
+		for (int i=0; i < grupos.length; i++) {
+			ListarGrupo(grupos[i].GetCodigo());
+		}		
+		ApresentarMenuTorneio();
+	}
+		
+	
+	
+	/*
+	 * GESTÂO FICHEIRO
+	 */
+	
+	private void LerFicheiros() {
+		 //criar uma pasta --> https://www.guj.com.br/t/criando-arquivos-e-diretorios/42487/2
+        File file = new File(this.pastaFicheiros);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        //está dentro de um try porque vai tentar ler o ficheiro, se der erro salta até o catch mais abaixo
+        try
+        {
+            //1. Ler o ficheiro equipas que está na pasta
+            Scanner scanner = new Scanner(new FileReader(this.pastaFicheiros + "\\equipas.txt")).useDelimiter("\n");            
+            while (scanner.hasNext()) {
+
+                //1.1 Após lido a linha vou dividir o texto pelo separador |
+                String[] linhaEquipa = scanner.next().split("\\|");
+
+                //1.2 Crio uma nova equipa com os dados lidos
+                Equipa nova = new Equipa();
+                nova.SetIdEquipa(linhaEquipa[0]);
+                nova.SetNomeEquipa(linhaEquipa[1]);
+                nova.SetInaguracao(Integer.parseInt(linhaEquipa[2]));
+                nova.SetFederacao(linhaEquipa[3]);
+                nova.SetContinenteEquipa(linhaEquipa[4]);                
+                nova.SetRanking(Integer.parseInt(linhaEquipa[5]));
+                nova.SetMundial(Boolean.parseBoolean(linhaEquipa[6]));
+
+                //1.3 Adiciono a equipa no array
+                this.torneio.InserirEquipa(nova);
+            }
+        } catch(Exception ex){
+        	 System.out.println("Ocorreu um erro a ler ficheiro. \n" + ex.getMessage());
+        }
+	}
+	
+	private void GravarFicheiros() {
+		try {					      	
+	      FileWriter caneta = new FileWriter("C:\\aplicacao\\equipas.txt");
+	      String linha = "";
+	      
+	      if (this.torneio.ContagemEquipas() == 0) {
+	    	  caneta.write("");
+	      }else {
+		      Equipa[] equipas = this.torneio.ObterEquipas();
+		      
+		      for(int i = 0; i < equipas.length; i++) {
+		    	  if (equipas[i] != null) {
+		    		  linha = "";
+		    		  
+		    		  linha += equipas[i].GetIdEquipa() +"|";
+		    		  linha += equipas[i].GetNomeEquipa() +"|";
+		    		  linha += equipas[i].GetInaguracao() +"|";
+		    		  linha += equipas[i].GetFederacao() +"|";
+		    		  linha += equipas[i].GetContinenteEquipa() +"|";
+		    		  linha += equipas[i].GetRanking() +"|";
+		    		  linha += equipas[i].GetMundial() +"|\n";
+		    		  caneta.write(linha);
+		    	  }
+		      }	     
+	      }
+	      caneta.close();	      	     
+	      System.out.println("Ficheiro guardado com sucesso");
+	    } catch (IOException ex) {	    	
+	      System.out.println("Ocorreu um erro a gravar. Tente mais tarde.\n" + ex.getMessage());
+	    }
+	}
+	}
 }
+
