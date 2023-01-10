@@ -13,15 +13,15 @@ public class Grupo {
 		this.Jogos = new Jogo[100];
 	}
 
-	public String getCodigo() {
+	public String GetCodigo() {
 		return this.Codigo;
 	}
 
-	public Equipa[] getEquipas() {
+	public Equipa[] GetEquipas() {
 		return this.Equipas;
 	}
 
-	public Jogo[] getJogos() {
+	public Jogo[] GetJogos() {
 		return this.Jogos;
 	}
 	

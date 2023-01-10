@@ -183,6 +183,7 @@ public class Torneio {
 		public Grupo[] GetGrupos() {
 			return this.grupos;
 		}
+		
 		public Grupo GetGrupo(String codigo) {
 
 			for(int i= 0; i< this.grupos.length; i++) {
@@ -224,9 +225,6 @@ public class Torneio {
 		/*
 		 * GESTÃO DE HISTORICO
 		 */
-		public void AdicionarHistorico() {
-			
-		}
-		
-	}
+		public void AdicionarHistorico() {		
+		}	
 }

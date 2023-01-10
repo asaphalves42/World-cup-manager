@@ -296,7 +296,7 @@ public class Aplicacao {
 			System.out.println("--- GRUPO " + codigo + " ---");
 			
 			for (int i = 0 ; i < grupo.GetEquipas().length; i++) {
-				System.out.println(i + ". " + grupo.GetEquipas()[i].GetnomeEquipa());	
+				System.out.println(i + ". " + grupo.GetEquipas()[i].GetNomeEquipa());	
 			}							
 			
 		} else {
@@ -382,7 +382,6 @@ public class Aplicacao {
 	    } catch (IOException ex) {	    	
 	      System.out.println("Ocorreu um erro a gravar. Tente mais tarde.\n" + ex.getMessage());
 	    }
-	}
-	}
+	}	
 }
 

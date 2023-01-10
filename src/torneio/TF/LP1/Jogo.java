@@ -35,7 +35,7 @@ public class Jogo {
 		return this.GolosA;
 	}
 
-	public int getGolosB() {
+	public int GetGolosB() {
 		return this.GolosB;
 	}
 	
