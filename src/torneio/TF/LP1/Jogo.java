@@ -44,11 +44,11 @@ public class Jogo {
 	}
 	
 	public Boolean AdicionarEvento(TipoEvento tipo, String nomeJogador,String IdEquipa, int minuto) {
-		if (IdEquipa !=EquipaA.GetIdEquipa() && IdEquipa != EquipaB.GetIdEquipa()) {
+		if (!IdEquipa.equals(EquipaA.GetIdEquipa()) && IdEquipa.equals(EquipaB.GetIdEquipa())) {
 			return false;
 		}else {
 			Equipa equipaEvento;
-			if (IdEquipa == EquipaA.GetIdEquipa()) {
+			if (IdEquipa.equals(EquipaA.GetIdEquipa())) {
 				equipaEvento = this.EquipaA;
 				if (tipo == TipoEvento.Golo) {
 					GolosA +=1;

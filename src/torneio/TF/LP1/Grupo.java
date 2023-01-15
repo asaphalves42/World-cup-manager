@@ -38,16 +38,15 @@ public class Grupo {
 	
 	public int ContagemEquipas() {
 		int contador = 0;
-		for (int i = 0; i < this.Equipas.length;i++ ) {
-			if(this.Equipas!=null) {
+		for (int i = 0; i < this.Equipas.length; i++ ) {
+			if(this.Equipas[i]!=null) {
 				contador++;
-			}else {
+			} else {
 				break;
 			}
-		}
-	
-	return contador;
-}
+		}	
+		return contador;
+	}
 	
 	
 	public int ContagemJogos() {

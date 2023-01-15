@@ -144,7 +144,7 @@ public class Torneio {
 				Grupo grupoH = new Grupo("H");
 				this.grupos[7] = grupoH;
 				
-				for(int i = 0 ; i< arrayTemporario.length; i++) {	
+				for (int i = 0 ; i< arrayTemporario.length; i++) {	
 					//primeiras quatro equpas vão para grupo A...
 					if (i >= 0 && i < 4) {				
 						grupoA.AdicionarEquipa(arrayTemporario[i]);
