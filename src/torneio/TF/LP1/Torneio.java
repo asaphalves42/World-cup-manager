@@ -22,7 +22,7 @@ public class Torneio {
 		public Equipa ObterEquipa(String id) {
 			for (int i = 0; i < this.equipas.length; i++) {
 				if (this.equipas[i] != null) {
-					if (this.equipas[i].GetIdEquipa() == id) {										 
+					if (this.equipas[i].GetIdEquipa().equals(id)) {										 
 						return this.equipas[i];
 					}
 				}
