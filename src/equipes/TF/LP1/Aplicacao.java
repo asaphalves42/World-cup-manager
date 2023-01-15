@@ -21,7 +21,7 @@ public class Aplicacao {
 	 */
 	Torneio torneio = new Torneio();
 	Scanner ler = new Scanner(System.in);
-	String pastaFicheiros = "C:\\aplicacao\\";
+	String pastaFicheiros = "C:\\Users\\asaph\\Desktop\\testeLP1";
 
 	/*
 	 * CONTROLO DE AÇÕES
@@ -401,7 +401,7 @@ public class Aplicacao {
 
 	private void GravarFicheiros() {
 		try {
-			FileWriter caneta = new FileWriter("C:\\aplicacao\\equipas.txt");
+			FileWriter caneta = new FileWriter("C:\\Users\\asaph\\Desktop\\testeLP1\\equipas.txt");
 			String linha = "";
 
 			if (this.torneio.ContagemEquipas() == 0) {

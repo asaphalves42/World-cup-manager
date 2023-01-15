@@ -1,9 +1,9 @@
 package torneio.TF.LP1;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Torneio {
-	
 		private Equipa[] equipas;
 		private Grupo[] grupos;	
 		public Torneio() {
@@ -225,6 +225,6 @@ public class Torneio {
 		/*
 		 * GESTÃO DE HISTORICO
 		 */
-		public void AdicionarHistorico() {		
-		}	
+		public void AdicionarHistorico() {	
+			}	
 }
