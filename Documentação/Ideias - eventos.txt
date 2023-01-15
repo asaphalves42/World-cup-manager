@@ -1,0 +1,30 @@
+Listar grupos
+
+-- GRUPO A --
+EQUIPA 1 - PTS 3
+EQUIPA 2 - PTS 4
+EQUIPA 3 - PTS 0
+EQUIPA 4 - PTS 1
+
+Opções do GRUPO A
+1- Listar Jogos
+2- Inserir evento para um jogo
+0- Voltar ao menu torneio
+
+Se fizer listar jogos
+Jogo 1 - EQuipa 2 vs 0 EQUIPA 
+#Eventos#
+1 Cartao amarelo aos 42 minutos para Diogo
+Golo as 89 minutos para X da equipa A
+
+Jogo 2 - Equipa 1 vs EQUIPA 3
+
+
+0. Voltar ao Menu Torneio
+
+Se escolher 1 questiona o jogos e tipo de evento
+
+1-Cartão amarelo
+2-Cartão vermelho
+3-Golos
+0-Cancelar - Voltar ao menu
