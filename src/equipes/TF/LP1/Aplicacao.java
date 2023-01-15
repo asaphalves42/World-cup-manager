@@ -36,11 +36,12 @@ public class Aplicacao {
 	public void ApresentarMenuPrincipal() {
 		System.out.println("");
 		System.out.println(" ## MENU PRINCIPAL ##");
-		System.out.println("(Selecione uma opÃ§Ã£o)");
+		System.out.println("(Selecione uma opção)");
 
 		System.out.println("1. Equipas");
 		System.out.println("2. Torneio");
-		System.out.println("3. Fechar");
+		System.out.println("3. Histórico");
+		System.out.println("4. Fechar");
 
 		switch (this.ler.nextInt()) {
 		case 1:
@@ -51,7 +52,9 @@ public class Aplicacao {
 			// apresentar menu torneio
 			this.ApresentarMenuTorneio();
 			break;
-		case 3: {
+		case 3:this.torneio.Historico();
+			
+		case 4: {
 			// gravo a informaï¿½ï¿½o para ficheiros e sai
 			this.GravarFicheiros();
 			break;
