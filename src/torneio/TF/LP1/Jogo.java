@@ -76,6 +76,73 @@ public class Jogo {
 		return contador;
 	}
 	
+	/*public static void GerirJogosA(Grupo grupo) {
 	
+		// adiciono os varios jogos do grupo
+			
+			grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs B
+			
+			
+			grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs C
+			
+			
+			grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[3], 0, 0); // A vs D
+			
+			
+			grupo.AdicionarJogo(grupo.GetEquipas()[1], grupo.GetEquipas()[2], 0, 0); // B vs C
+			
+			
+			grupo.AdicionarJogo(grupo.GetEquipas()[1], grupo.GetEquipas()[3], 0, 0); // B vs D
+			
+			
+			grupo.AdicionarJogo(grupo.GetEquipas()[2], grupo.GetEquipas()[3], 0, 0); // C vs D
+			
+			
+	 
+}
+*/
 	
+	/*public static void GerirJogos() {
+
+		int opcao;
+
+		do {
+			System.out.println("## GERIR JOGOS ##");
+			System.out.println("1. Gerir jogos grupo A");
+			System.out.println("2. Gerir jogos grupo B");
+			System.out.println("3. Gerir jogos grupo C");
+			System.out.println("4. Gerir jogos grupo D");
+			System.out.println("5. Gerir jogos grupo E");
+			System.out.println("6. Gerir jogos grupo F");
+			System.out.println("7. Gerir jogos grupo G");
+			System.out.println("8. Gerir jogos grupo H");
+
+			opcao = ler.nextInt();
+
+			switch (opcao) {
+
+			case 1: GerirJogosA();
+				break;
+			case 2: // B
+				break;
+			case 3: // C
+				break;
+			case 4: // D
+				break;
+			case 5: // E
+				break;
+			case 6: // F
+				break;
+			case 7: // G
+				break;
+			case 8: // H
+				break;
+			default:
+				System.out.println("Opção inválida");
+				break;
+			}
+		} while (opcao != 8);
+	}
+	
+	*/
 }

@@ -30,7 +30,7 @@ public class Grupo {
 	}
 	
 	public void AdicionarJogo(Equipa equipaA, Equipa equipaB, int golosA, int golosB) {
-		//crio a classe do jogo~
+		//crio a classe do jogo
 		Jogo jogo = new Jogo(0,equipaA, equipaB, golosA, golosB);
 		//adiciono o jogo ao array
 		this.Jogos[this.ContagemJogos()] = jogo;

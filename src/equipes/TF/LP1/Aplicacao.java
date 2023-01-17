@@ -52,8 +52,9 @@ public class Aplicacao {
 			// apresentar menu torneio
 			this.ApresentarMenuTorneio();
 			break;
-		case 3:this.torneio.Historico();
-			
+		case 3:
+			this.torneio.Historico();
+
 		case 4: {
 			// gravo a informa��o para ficheiros e sai
 			this.GravarFicheiros();
@@ -79,29 +80,29 @@ public class Aplicacao {
 		System.out.println("0. Menu Principal");
 
 		switch (this.ler.nextInt()) {
-			case 1:
-				this.ListarEquipas();
-				break;
-			case 2:
-				this.AdicionarEquipa();
-				break;
-			case 3:
-				EditarEquipa();
-				this.ApresentarMenuEquipas();
-				break;
-			case 4:
-				this.EliminarEquipa();
-				break;
-			case 5:
-				this.ApresentarMenuPrincipal();
-				break;
-			case 0:
-				this.ApresentarMenuPrincipal();
-				break;
-			default:
-				System.out.println("!!!! Opção inválida !!!!");
-				this.ApresentarMenuEquipas();
-				break;
+		case 1:
+			this.ListarEquipas();
+			break;
+		case 2:
+			this.AdicionarEquipa();
+			break;
+		case 3:
+			EditarEquipa();
+			this.ApresentarMenuEquipas();
+			break;
+		case 4:
+			this.EliminarEquipa();
+			break;
+		case 5:
+			this.ApresentarMenuPrincipal();
+			break;
+		case 0:
+			this.ApresentarMenuPrincipal();
+			break;
+		default:
+			System.out.println("!!!! Opção inválida !!!!");
+			this.ApresentarMenuEquipas();
+			break;
 		}
 	}
 
@@ -169,11 +170,16 @@ public class Aplicacao {
 			this.ListasTodosGrupos();
 			ApresentarMenuTorneio();
 			break;
+		case 11:
+			
+			break;
 		default:
 			System.out.println("!!!! Opção inválida !!!!");
 			this.ApresentarMenuEquipas();
 		}
 	}
+
+	
 
 	/*
 	 * GEST�O DE EQUIPAS
@@ -233,14 +239,16 @@ public class Aplicacao {
 			System.out.println("\n-------------------------\n"); // o barra n da� uma quebra de linha
 
 			for (int i = 0; i < this.torneio.ObterEquipas().length; i++) {
-				// vou correr todas as equipas do array e apresentar informa��o. so apresento
+				// vou correr todas as equipas do array e apresentar informa��o. so
+				// apresento
 				// a
 				// equipa no array se estiver preenchida essa posi��oo do array
 				if (this.torneio.ObterEquipas()[i] != null) {
 					Equipa equipa = this.torneio.ObterEquipas()[i];
 					System.out.println("Equipa " + (equipa.GetIdEquipa()) + "\nNome: " + equipa.GetNomeEquipa()
-							+ "\nFedera��oo: " + equipa.GetFederacao() + "\nAno Inaugura��o: " + equipa.GetInaguracao()
-							+ "\nRanking: " + equipa.GetRanking() + "\nMundial: " + equipa.GetMundial());
+							+ "\nFedera��oo: " + equipa.GetFederacao() + "\nAno Inaugura��o: "
+							+ equipa.GetInaguracao() + "\nRanking: " + equipa.GetRanking() + "\nMundial: "
+							+ equipa.GetMundial());
 					// adiciono uma quebra de linha por cada equipa
 					System.out.println("");
 				} else {
@@ -253,18 +261,18 @@ public class Aplicacao {
 	}
 
 	public void EditarEquipa() {
-		int opcao;		
+		int opcao;
 		String mundial;
 		System.out.println("Indique o identificador da equipa que pretende editar:");
 		String idEquipa = ler.next();
-		
+
 		// obter da lista de equipas por ID
 		Equipa equipaEncontrada = this.torneio.ObterEquipa(idEquipa);
-		
-		if (equipaEncontrada != null) {							
-			do {	
-				
-				System.out.println("Selecione uma opção:"); 
+
+		if (equipaEncontrada != null) {
+			do {
+
+				System.out.println("Selecione uma opção:");
 				System.out.println("1. Alterar nome da equipa");
 				System.out.println("2. Alterar ano da fundação");
 				System.out.println("3. Alterar Federação");
@@ -272,69 +280,69 @@ public class Aplicacao {
 				System.out.println("5. Alterar se está ou não no mundial ");
 				System.out.println("6. Alterar equipa completa");
 				System.out.println("0. Menu Equipas");
-				
+
 				opcao = this.ler.nextInt();
-				switch (opcao) {			
-					case 1: 
-						System.out.println("Insira o novo nome da equipa");
-						equipaEncontrada.SetNomeEquipa(ler.next());
-						break;
-					case 2:
-						System.out.println("Insira o novo ano da fundação");
-						equipaEncontrada.SetInaguracao(ler.nextInt());
-						break;
-					case 3:
-						System.out.println("Insira a nova federação da equipa");
-						equipaEncontrada.SetFederacao(ler.next());
-						break;
-					case 4:
-						System.out.println("Insira o novo ranking da equipa");
-						equipaEncontrada.SetRanking(ler.nextInt());
-						break;				
-					case 5:
-						mundial = ler.next();
-						if	(mundial.toLowerCase().equals("sim")) {
-							equipaEncontrada.SetMundial(true);
-							System.out.println("Alterado para sim");
-						} else if (mundial.toLowerCase().equals("não")) {
-							equipaEncontrada.SetMundial(false);
-							System.out.println("Alterado para não");
-						} else {
-							System.out.println("Opção inválida");
-						}
-						break;					
-					case 6: 						
-						System.out.println("Indique o nome da nova equipa:");
-						equipaEncontrada.SetNomeEquipa(ler.next());
-		
-						System.out.println("Indique a federação da nova equipa:");
-						equipaEncontrada.SetFederacao(ler.next());
-		
-						System.out.println("Indique o ano de inauguração:");
-						equipaEncontrada.SetInaguracao(ler.nextInt());
-							
-						System.out.println("Indique o ranking da equipa:");
-						equipaEncontrada.SetRanking(ler.nextInt());
-							
-						System.out.println("Indique vai ao mundial (sim, não):");
-							
-						mundial = ler.next();
-						if (mundial.toLowerCase().equals("sim")) {
-							equipaEncontrada.SetMundial(true);
-						} else if (mundial.toLowerCase().equals("não")){
-							equipaEncontrada.SetMundial(false);
-						} else {
-							System.out.println("Opção 'vai ao mundial' inválida");
-						}
-						// informo que a equipa foi adicionada
-						System.out.println("Equipa editada com sucesso!");						
-						break;	
-				 	//volta ao menu de equipas
-					case 7:
-						ApresentarMenuEquipas();
-						break;
-				}					
-			} while (opcao !=0);
+				switch (opcao) {
+				case 1:
+					System.out.println("Insira o novo nome da equipa");
+					equipaEncontrada.SetNomeEquipa(ler.next());
+					break;
+				case 2:
+					System.out.println("Insira o novo ano da fundação");
+					equipaEncontrada.SetInaguracao(ler.nextInt());
+					break;
+				case 3:
+					System.out.println("Insira a nova federação da equipa");
+					equipaEncontrada.SetFederacao(ler.next());
+					break;
+				case 4:
+					System.out.println("Insira o novo ranking da equipa");
+					equipaEncontrada.SetRanking(ler.nextInt());
+					break;
+				case 5:
+					mundial = ler.next();
+					if (mundial.toLowerCase().equals("sim")) {
+						equipaEncontrada.SetMundial(true);
+						System.out.println("Alterado para sim");
+					} else if (mundial.toLowerCase().equals("não")) {
+						equipaEncontrada.SetMundial(false);
+						System.out.println("Alterado para não");
+					} else {
+						System.out.println("Opção inválida");
+					}
+					break;
+				case 6:
+					System.out.println("Indique o nome da nova equipa:");
+					equipaEncontrada.SetNomeEquipa(ler.next());
+
+					System.out.println("Indique a federação da nova equipa:");
+					equipaEncontrada.SetFederacao(ler.next());
+
+					System.out.println("Indique o ano de inauguração:");
+					equipaEncontrada.SetInaguracao(ler.nextInt());
+
+					System.out.println("Indique o ranking da equipa:");
+					equipaEncontrada.SetRanking(ler.nextInt());
+
+					System.out.println("Indique vai ao mundial (sim, não):");
+
+					mundial = ler.next();
+					if (mundial.toLowerCase().equals("sim")) {
+						equipaEncontrada.SetMundial(true);
+					} else if (mundial.toLowerCase().equals("não")) {
+						equipaEncontrada.SetMundial(false);
+					} else {
+						System.out.println("Opção 'vai ao mundial' inválida");
+					}
+					// informo que a equipa foi adicionada
+					System.out.println("Equipa editada com sucesso!");
+					break;
+				// volta ao menu de equipas
+				case 7:
+					ApresentarMenuEquipas();
+					break;
+				}
+			} while (opcao != 0);
 		}
 	}
 
@@ -356,6 +364,7 @@ public class Aplicacao {
 	}
 
 	public void ListasTodosGrupos() {
+
 		Grupo[] grupos = this.torneio.GetGrupos();
 		for (int i = 0; i < grupos.length; i++) {
 			ListarGrupo(grupos[i].GetCodigo());
@@ -374,7 +383,8 @@ public class Aplicacao {
 		if (!file.exists()) {
 			file.mkdirs();
 		}
-		// está dentro de um try porque vai tentar ler o ficheiro, se der erro salta até
+		// está dentro de um try porque vai tentar ler o ficheiro, se der erro salta
+		// até
 		// o catch mais abaixo
 		try {
 			// 1. Ler o ficheiro equipas que está na pasta
