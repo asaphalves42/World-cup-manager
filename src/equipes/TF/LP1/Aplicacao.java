@@ -24,10 +24,10 @@ public class Aplicacao {
 	String pastaFicheiros = "C:\\Users\\asaph\\Desktop\\testeLP1";
 
 	/*
-	 * CONTROLO DE AÇÕES
+	 * CONTROLO DE AcÕES
 	 */
 	public void Iniciar() {
-		System.out.println(" -<<<< APLICAÇÃO DO MUNDIAL >>>>-");
+		System.out.println(" -<<<< APLICACAO DO MUNDIAL >>>>-");
 		// this.LerDadosFicheiros();
 		this.ApresentarMenuPrincipal();
 	}
@@ -36,11 +36,11 @@ public class Aplicacao {
 	public void ApresentarMenuPrincipal() {
 		System.out.println("");
 		System.out.println(" ## MENU PRINCIPAL ##");
-		System.out.println("(Selecione uma op��o)");
+		System.out.println("(Selecione uma opcao)");
 
 		System.out.println("1. Equipas");
 		System.out.println("2. Torneio");
-		System.out.println("3. Hist�rico");
+		System.out.println("3. Historico");
 		System.out.println("4. Fechar");
 
 		switch (this.ler.nextInt()) {
@@ -61,7 +61,7 @@ public class Aplicacao {
 			break;
 		}
 		default:
-			System.out.println("Opçãoo inválida.");
+			System.out.println("Opcao invalida.");
 			this.ApresentarMenuPrincipal();
 		}
 
@@ -71,7 +71,7 @@ public class Aplicacao {
 	public void ApresentarMenuEquipas() {
 		System.out.println("");
 		System.out.println(" ## EQUIPAS ##");
-		System.out.println("(Selecione uma opção)");
+		System.out.println("(Selecione uma opcao)");
 
 		System.out.println("1. Listar equipa");
 		System.out.println("2. Adicionar equipa");
@@ -100,17 +100,17 @@ public class Aplicacao {
 			this.ApresentarMenuPrincipal();
 			break;
 		default:
-			System.out.println("!!!! Opção inválida !!!!");
+			System.out.println("!!!! opcao invalida !!!!");
 			this.ApresentarMenuEquipas();
 			break;
 		}
 	}
 
-	// Funções para gerir o torneio
+	// Funcões para gerir o torneio
 	public void ApresentarMenuTorneio() {
 		System.out.println("");
 		System.out.println(" ## TORNEIO ##");
-		System.out.println("(Selecione uma opção)");
+		System.out.println("(Selecione uma opcao)");
 
 		System.out.println("1. Gerar Torneio");
 		System.out.println("2. Listar grupo A");
@@ -129,7 +129,7 @@ public class Aplicacao {
 			if (this.torneio.GerarFaseGrupos() == true) {
 				System.out.println("Fase de grupos gerada");
 			} else {
-				System.out.println("Não foi possivel gerar a fase de grupos. Deve existir 32 equipas.");
+				System.out.println("Nao foi possivel gerar a fase de grupos. Deve existir 32 equipas.");
 			}
 			this.torneio.GerarFaseGrupos();
 			this.ApresentarMenuTorneio();
@@ -174,7 +174,7 @@ public class Aplicacao {
 			
 			break;
 		default:
-			System.out.println("!!!! Opção inválida !!!!");
+			System.out.println("!!!! opcao invalida !!!!");
 			this.ApresentarMenuEquipas();
 		}
 	}
@@ -192,10 +192,10 @@ public class Aplicacao {
 		System.out.println("Indique o nome  da equipa:");
 		nova.SetNomeEquipa(ler.next());
 
-		System.out.println("Indique a federação da equipa:");
+		System.out.println("Indique a federacao da equipa:");
 		nova.SetFederacao(ler.next());
 
-		System.out.println("Indique o ano de inauguração:");
+		System.out.println("Indique o ano de inauguracao:");
 		nova.SetInaguracao(ler.nextInt());
 
 		System.out.println("Indique o ranking da equipa:");
@@ -226,7 +226,7 @@ public class Aplicacao {
 		if (this.torneio.EliminarEquipa(idEquipa) == true) {
 			System.out.println("Equipa eliminada com sucesso.");
 		} else {
-			System.out.println("Equipa não encontrada");
+			System.out.println("Equipa nao encontrada");
 		}
 		ApresentarMenuEquipas();
 	}
@@ -234,7 +234,7 @@ public class Aplicacao {
 	public void ListarEquipas() {
 		// se o array esta� vazio, ou seja, n�o existem equipas
 		if (this.torneio.ContagemEquipas() == 0) {
-			System.out.println("Não existem equipas registadas.");
+			System.out.println("Nao existem equipas registadas.");
 		} else {
 			System.out.println("\n-------------------------\n"); // o barra n da� uma quebra de linha
 
@@ -246,7 +246,7 @@ public class Aplicacao {
 				if (this.torneio.ObterEquipas()[i] != null) {
 					Equipa equipa = this.torneio.ObterEquipas()[i];
 					System.out.println("Equipa " + (equipa.GetIdEquipa()) + "\nNome: " + equipa.GetNomeEquipa()
-							+ "\nFedera��oo: " + equipa.GetFederacao() + "\nAno Inaugura��o: "
+							+ "\nFederacao: " + equipa.GetFederacao() + "\nAno Inauguracao: "
 							+ equipa.GetInaguracao() + "\nRanking: " + equipa.GetRanking() + "\nMundial: "
 							+ equipa.GetMundial());
 					// adiciono uma quebra de linha por cada equipa
@@ -272,12 +272,12 @@ public class Aplicacao {
 		if (equipaEncontrada != null) {
 			do {
 
-				System.out.println("Selecione uma opção:");
+				System.out.println("Selecione uma opcao:");
 				System.out.println("1. Alterar nome da equipa");
-				System.out.println("2. Alterar ano da fundação");
-				System.out.println("3. Alterar Federação");
+				System.out.println("2. Alterar ano da fundacao");
+				System.out.println("3. Alterar Federacao");
 				System.out.println("4. Alterar Ranking");
-				System.out.println("5. Alterar se está ou não no mundial ");
+				System.out.println("5. Alterar se esta ou nao no mundial ");
 				System.out.println("6. Alterar equipa completa");
 				System.out.println("0. Menu Equipas");
 
@@ -288,11 +288,11 @@ public class Aplicacao {
 					equipaEncontrada.SetNomeEquipa(ler.next());
 					break;
 				case 2:
-					System.out.println("Insira o novo ano da fundação");
+					System.out.println("Insira o novo ano da fundacao");
 					equipaEncontrada.SetInaguracao(ler.nextInt());
 					break;
 				case 3:
-					System.out.println("Insira a nova federação da equipa");
+					System.out.println("Insira a nova federacao da equipa");
 					equipaEncontrada.SetFederacao(ler.next());
 					break;
 				case 4:
@@ -304,35 +304,35 @@ public class Aplicacao {
 					if (mundial.toLowerCase().equals("sim")) {
 						equipaEncontrada.SetMundial(true);
 						System.out.println("Alterado para sim");
-					} else if (mundial.toLowerCase().equals("não")) {
+					} else if (mundial.toLowerCase().equals("nao")) {
 						equipaEncontrada.SetMundial(false);
-						System.out.println("Alterado para não");
+						System.out.println("Alterado para nao");
 					} else {
-						System.out.println("Opção inválida");
+						System.out.println("opcao invalida");
 					}
 					break;
 				case 6:
 					System.out.println("Indique o nome da nova equipa:");
 					equipaEncontrada.SetNomeEquipa(ler.next());
 
-					System.out.println("Indique a federação da nova equipa:");
+					System.out.println("Indique a federacao da nova equipa:");
 					equipaEncontrada.SetFederacao(ler.next());
 
-					System.out.println("Indique o ano de inauguração:");
+					System.out.println("Indique o ano de inauguracao:");
 					equipaEncontrada.SetInaguracao(ler.nextInt());
 
 					System.out.println("Indique o ranking da equipa:");
 					equipaEncontrada.SetRanking(ler.nextInt());
 
-					System.out.println("Indique vai ao mundial (sim, não):");
+					System.out.println("Indique vai ao mundial (sim, nao):");
 
 					mundial = ler.next();
 					if (mundial.toLowerCase().equals("sim")) {
 						equipaEncontrada.SetMundial(true);
-					} else if (mundial.toLowerCase().equals("não")) {
+					} else if (mundial.toLowerCase().equals("nao")) {
 						equipaEncontrada.SetMundial(false);
 					} else {
-						System.out.println("Opção 'vai ao mundial' inválida");
+						System.out.println("opcao 'vai ao mundial' invalida");
 					}
 					// informo que a equipa foi adicionada
 					System.out.println("Equipa editada com sucesso!");
@@ -347,7 +347,7 @@ public class Aplicacao {
 	}
 
 	/*
-	 * GESTÃO DE TORNEIO
+	 * GESTaO DE TORNEIO
 	 */
 	public void ListarGrupo(String codigo) {
 		Grupo grupo = this.torneio.GetGrupo(codigo);
@@ -359,7 +359,7 @@ public class Aplicacao {
 			}
 
 		} else {
-			System.out.println("Grupo não existente, deve gerar o torneio.");
+			System.out.println("Grupo nao existente, deve gerar o torneio.");
 		}
 	}
 
@@ -383,11 +383,11 @@ public class Aplicacao {
 		if (!file.exists()) {
 			file.mkdirs();
 		}
-		// está dentro de um try porque vai tentar ler o ficheiro, se der erro salta
+		// esta dentro de um try porque vai tentar ler o ficheiro, se der erro salta
 		// até
 		// o catch mais abaixo
 		try {
-			// 1. Ler o ficheiro equipas que está na pasta
+			// 1. Ler o ficheiro equipas que esta na pasta
 			Scanner scanner = new Scanner(new FileReader(this.pastaFicheiros + "\\equipas.txt")).useDelimiter("\n");
 			while (scanner.hasNext()) {
 
