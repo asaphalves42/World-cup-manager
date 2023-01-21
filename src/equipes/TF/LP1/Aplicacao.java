@@ -24,7 +24,7 @@ public class Aplicacao {
 	String pastaFicheiros = "C:\\Users\\asaph\\Desktop\\testeLP1";
 
 	/*
-	 * CONTROLO DE AcÕES
+	 * CONTROLO DE ACÕES
 	 */
 	public void Iniciar() {
 		System.out.println(" -<<<< APLICACAO DO MUNDIAL >>>>-");
@@ -32,7 +32,7 @@ public class Aplicacao {
 		this.ApresentarMenuPrincipal();
 	}
 
-	// Fun��es menu principal
+	// Funcoes menu principal
 	public void ApresentarMenuPrincipal() {
 		System.out.println("");
 		System.out.println(" ## MENU PRINCIPAL ##");
@@ -56,7 +56,7 @@ public class Aplicacao {
 			this.torneio.Historico();
 
 		case 4: {
-			// gravo a informa��o para ficheiros e sai
+			// gravo a informacao para ficheiros e sai
 			this.GravarFicheiros();
 			break;
 		}
@@ -67,7 +67,7 @@ public class Aplicacao {
 
 	}
 
-	// Fun��es para gerir as equipas
+	// Funcoes para gerir as equipas
 	public void ApresentarMenuEquipas() {
 		System.out.println("");
 		System.out.println(" ## EQUIPAS ##");
@@ -182,11 +182,11 @@ public class Aplicacao {
 	
 
 	/*
-	 * GEST�O DE EQUIPAS
+	 * GESTAO DE EQUIPAS
 	 */
 
 	public void AdicionarEquipa() {
-		// Pe�o os dados ao utilizador
+		// Pede os dados ao utilizador
 		Equipa nova = new Equipa();
 
 		System.out.println("Indique o nome  da equipa:");
@@ -209,7 +209,7 @@ public class Aplicacao {
 		} else {
 			nova.SetMundial(false);
 		}
-		// adiciono a equipa na ultima posi��o do array~
+		// adiciono a equipa na ultima posicao do array~
 		this.torneio.InserirEquipa(nova);
 
 		// informo que a equipa foi adicionada
@@ -232,17 +232,17 @@ public class Aplicacao {
 	}
 
 	public void ListarEquipas() {
-		// se o array esta� vazio, ou seja, n�o existem equipas
+		// se o array esta vazio, ou seja, nao existem equipas
 		if (this.torneio.ContagemEquipas() == 0) {
 			System.out.println("Nao existem equipas registadas.");
 		} else {
 			System.out.println("\n-------------------------\n"); // o barra n da� uma quebra de linha
 
 			for (int i = 0; i < this.torneio.ObterEquipas().length; i++) {
-				// vou correr todas as equipas do array e apresentar informa��o. so
+				// vou correr todas as equipas do array e apresentar informacao. so
 				// apresento
 				// a
-				// equipa no array se estiver preenchida essa posi��oo do array
+				// equipa no array se estiver preenchida essa posicao do array
 				if (this.torneio.ObterEquipas()[i] != null) {
 					Equipa equipa = this.torneio.ObterEquipas()[i];
 					System.out.println("Equipa " + (equipa.GetIdEquipa()) + "\nNome: " + equipa.GetNomeEquipa()
@@ -347,7 +347,7 @@ public class Aplicacao {
 	}
 
 	/*
-	 * GESTaO DE TORNEIO
+	 * GESTAO DE TORNEIO
 	 */
 	public void ListarGrupo(String codigo) {
 		Grupo grupo = this.torneio.GetGrupo(codigo);
@@ -373,7 +373,7 @@ public class Aplicacao {
 	}
 
 	/*
-	 * GESTÂO FICHEIRO
+	 * GESTAO FICHEIRO
 	 */
 
 	private void LerFicheiros() {
@@ -384,7 +384,7 @@ public class Aplicacao {
 			file.mkdirs();
 		}
 		// esta dentro de um try porque vai tentar ler o ficheiro, se der erro salta
-		// até
+		// ate 
 		// o catch mais abaixo
 		try {
 			// 1. Ler o ficheiro equipas que esta na pasta
