@@ -198,14 +198,28 @@ public class Torneio {
 	}
 
 	public void GerarJogosGrupo(Grupo grupo) {
+		
 		// adiciono os varios jogos do grupo
 		
+		System.out.println("Jogo 1");
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs B
+		
+		System.out.println("Jogo 2");
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs C
+		
+		System.out.println("Jogo 3");
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[3], 0, 0); // A vs D
+		
+		System.out.println("Jogo 4");
 		grupo.AdicionarJogo(grupo.GetEquipas()[1], grupo.GetEquipas()[2], 0, 0); // B vs C
+		
+		System.out.println("Jogo 5");
 		grupo.AdicionarJogo(grupo.GetEquipas()[1], grupo.GetEquipas()[3], 0, 0); // B vs D
+		
+		System.out.println("Jogo 6");
 		grupo.AdicionarJogo(grupo.GetEquipas()[2], grupo.GetEquipas()[3], 0, 0); // C vs D
+		
+		
 	}
 
 	// método estático que embaralha os elementos de um vetor de inteiros
