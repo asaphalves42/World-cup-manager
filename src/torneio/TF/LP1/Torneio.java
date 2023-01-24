@@ -197,10 +197,9 @@ public class Torneio {
 		return null;
 	}
 
-	private void GerarJogosGrupo(Grupo grupo) {
+	public void GerarJogosGrupo(Grupo grupo) {
 		// adiciono os varios jogos do grupo
-		// o zero é o resultado - deve ser adicionado numeros aleatorios entre 0 e 4
-		// utilizar o Random
+		
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs B
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs C
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[3], 0, 0); // A vs D
@@ -257,13 +256,7 @@ public class Torneio {
 		} while (opcao != 4);
 
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

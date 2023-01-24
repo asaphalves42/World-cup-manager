@@ -24,7 +24,7 @@ public class Aplicacao {
 	String pastaFicheiros = "C:\\Users\\asaph\\Desktop\\testeLP1";
 
 	/*
-	 * CONTROLO DE ACÃ•ES
+	 * CONTROLO DE AÇÕES
 	 */
 	public void Iniciar() {
 		System.out.println(" -<<<< APLICACAO DO MUNDIAL >>>>-");
@@ -34,6 +34,8 @@ public class Aplicacao {
 
 	// Funcoes menu principal
 	public void ApresentarMenuPrincipal() {
+		
+		do {
 		System.out.println("");
 		System.out.println(" ## MENU PRINCIPAL ##");
 		System.out.println("(Selecione uma opcao)");
@@ -64,11 +66,12 @@ public class Aplicacao {
 			System.out.println("Opcao invalida.");
 			this.ApresentarMenuPrincipal();
 		}
-
+		}while(this.ler.nextInt()!=4);
 	}
 
 	// Funcoes para gerir as equipas
 	public void ApresentarMenuEquipas() {
+		do {
 		System.out.println("");
 		System.out.println(" ## EQUIPAS ##");
 		System.out.println("(Selecione uma opcao)");
@@ -104,10 +107,12 @@ public class Aplicacao {
 			this.ApresentarMenuEquipas();
 			break;
 		}
+		}while(this.ler.nextInt()!=0);
 	}
 
 	// FuncÃµes para gerir o torneio
 	public void ApresentarMenuTorneio() {
+		do {
 		System.out.println("");
 		System.out.println(" ## TORNEIO ##");
 		System.out.println("(Selecione uma opcao)");
@@ -122,6 +127,7 @@ public class Aplicacao {
 		System.out.println("8. Listar grupo G");
 		System.out.println("9. Listar grupo H");
 		System.out.println("10. Listar todos grupos");
+		System.out.println("11. Gerir jogos dos grupos");
 		System.out.println("0. Menu Principal");
 
 		switch (this.ler.nextInt()) {
@@ -171,15 +177,59 @@ public class Aplicacao {
 			ApresentarMenuTorneio();
 			break;
 		case 11:
-			
+			this.GerirJogos();
+			break;
+		case 0:ApresentarMenuTorneio();
 			break;
 		default:
 			System.out.println("!!!! opcao invalida !!!!");
 			this.ApresentarMenuEquipas();
 		}
+	}while(this.ler.nextInt()!=0);
 	}
 
 	
+	public void GerirJogos() {
+
+		do {
+			System.out.println("## GERIR JOGOS ##");
+			System.out.println("1. Gerir jogos grupo A");
+			System.out.println("2. Gerir jogos grupo B");
+			System.out.println("3. Gerir jogos grupo C");
+			System.out.println("4. Gerir jogos grupo D");
+			System.out.println("5. Gerir jogos grupo E");
+			System.out.println("6. Gerir jogos grupo F");
+			System.out.println("7. Gerir jogos grupo G");
+			System.out.println("8. Gerir jogos grupo H");
+			System.out.println("0. Menu Principal");
+			
+			
+			switch (this.ler.nextInt()) {
+
+			case 1: //A
+				break;
+			case 2: // B
+				break;
+			case 3: // C
+				break;
+			case 4: // D
+				break;
+			case 5: // E
+				break;
+			case 6: // F
+				break;
+			case 7: // G
+				break;
+			case 8: // H
+				break;
+			default:
+				System.out.println("Opção inválida");
+				break;
+			}
+		} while (this.ler.nextInt()!= 8);
+	}
+
+
 
 	/*
 	 * GESTAO DE EQUIPAS
