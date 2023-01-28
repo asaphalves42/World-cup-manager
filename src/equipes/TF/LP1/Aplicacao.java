@@ -10,6 +10,14 @@ import java.util.Scanner;
 
 import torneio.TF.LP1.*;
 
+/**
+ * @author tiago
+ *
+ */
+/**
+ * @author tiago
+ *
+ */
 public class Aplicacao {
 
 	public Aplicacao() {
@@ -24,7 +32,7 @@ public class Aplicacao {
 	String pastaFicheiros = "C:\\Users\\asaph\\Desktop\\testeLP1";
 
 	/*
-	 * CONTROLO DE A��ES
+	 * CONTROLO DE A��ES
 	 */
 	public void Iniciar() {
 		System.out.println(" -<<<< APLICACAO DO MUNDIAL >>>>-");
@@ -223,7 +231,7 @@ public class Aplicacao {
 			case 8: // H
 				break;
 			default:
-				System.out.println("Op��o inv�lida");
+				System.out.println("Opcao invalida");
 				break;
 			}
 		} while (this.ler.nextInt()!= 8);
@@ -238,33 +246,37 @@ public class Aplicacao {
 	public void AdicionarEquipa() {
 		// Pede os dados ao utilizador
 		Equipa nova = new Equipa();
+		
+		
 
 		System.out.println("Indique o nome  da equipa:");
 		nova.SetNomeEquipa(ler.next());
+		
+		//nova.SetNomeEquipa(ler.nextLine());
 
 		System.out.println("Indique a federacao da equipa:");
 		nova.SetFederacao(ler.next());
 
 		System.out.println("Indique o ano de inauguracao:");
-		nova.SetInaguracao(ler.nextInt());
+		this.VerificarInauguracao(nova);
+		
 
 		System.out.println("Indique o ranking da equipa:");
 		nova.SetRanking(ler.nextInt());
 
 		System.out.println("Indique vai ao mundial:");
-		String mundial = ler.next();
-
-		if (mundial.equals("sim") || mundial.equals(("s"))) {
-			nova.SetMundial(true);
-		} else {
-			nova.SetMundial(false);
-		}
+		this.VerificarVaiMundial(nova);
+		
+		
 		// adiciono a equipa na ultima posicao do array~
 		this.torneio.InserirEquipa(nova);
-
 		// informo que a equipa foi adicionada
 		System.out.println("Equipa adicionada com sucesso!");
 
+		
+		
+
+		
 		// volta ao menu de equipas
 		ApresentarMenuEquipas();
 	}
@@ -338,8 +350,7 @@ public class Aplicacao {
 					equipaEncontrada.SetNomeEquipa(ler.next());
 					break;
 				case 2:
-					System.out.println("Insira o novo ano da fundacao");
-					equipaEncontrada.SetInaguracao(ler.nextInt());
+					this.VerificarInauguracaoEditada(equipaEncontrada);
 					break;
 				case 3:
 					System.out.println("Insira a nova federacao da equipa");
@@ -351,15 +362,16 @@ public class Aplicacao {
 					break;
 				case 5:
 					mundial = ler.next();
-					if (mundial.toLowerCase().equals("sim")) {
-						equipaEncontrada.SetMundial(true);
-						System.out.println("Alterado para sim");
-					} else if (mundial.toLowerCase().equals("nao")) {
-						equipaEncontrada.SetMundial(false);
-						System.out.println("Alterado para nao");
+					if (mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s")) {
+					    equipaEncontrada.SetMundial(true);
+					    System.out.println("Alterado para sim");
+					} else if (mundial.equalsIgnoreCase("nao") || mundial.equalsIgnoreCase("n")) {
+					    equipaEncontrada.SetMundial(false);
+					    System.out.println("Alterado para nao");
 					} else {
-						System.out.println("opcao invalida");
+					    System.out.println("opcao invalida");
 					}
+
 					break;
 				case 6:
 					System.out.println("Indique o nome da nova equipa:");
@@ -369,24 +381,37 @@ public class Aplicacao {
 					equipaEncontrada.SetFederacao(ler.next());
 
 					System.out.println("Indique o ano de inauguracao:");
-					equipaEncontrada.SetInaguracao(ler.nextInt());
+					this.VerificarAnoInaururacaoNovo(equipaEncontrada);
+		
 
 					System.out.println("Indique o ranking da equipa:");
 					equipaEncontrada.SetRanking(ler.nextInt());
 
 					System.out.println("Indique vai ao mundial (sim, nao):");
 
-					mundial = ler.next();
-					if (mundial.toLowerCase().equals("sim")) {
-						equipaEncontrada.SetMundial(true);
-					} else if (mundial.toLowerCase().equals("nao")) {
-						equipaEncontrada.SetMundial(false);
-					} else {
-						System.out.println("opcao 'vai ao mundial' invalida");
+					boolean enumero = true;
+					while(true){
+					    mundial = ler.next();
+					    for (int i = 0; i < mundial.length(); i++) {
+					        if (!Character.isDigit(mundial.charAt(i))) {
+					          enumero = false;
+					          break;
+					        }
+					    }
+					    if(enumero || !(mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s") || mundial.equalsIgnoreCase("nao") || mundial.equalsIgnoreCase("n"))){
+					        System.out.println("Entrada inválida, por favor digite somente 'sim' ou 's' ou 'nao' ou 'n'");
+					        enumero = true;
+					    }else {
+					        break;
+					    }
 					}
-					// informo que a equipa foi adicionada
+					if (mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s")) {
+					    equipaEncontrada.SetMundial(true);
+					} else {
+					    equipaEncontrada.SetMundial(false);
+					}
 					System.out.println("Equipa editada com sucesso!");
-					break;
+
 				// volta ao menu de equipas
 				case 7:
 					ApresentarMenuEquipas();
@@ -493,4 +518,85 @@ public class Aplicacao {
 			System.out.println("Ocorreu um erro a gravar. Tente mais tarde.\n" + ex.getMessage());
 		}
 	}
+	
+	
+	
+	/**        ||||||||||||||||||||||||||||||||||||||||||||||||||
+	 * 		   |*************FUNCOES DE VALIDACAO **************|
+	 * 		   ||||||||||||||||||||||||||||||||||||||||||||||||||
+	 */
+	private void VerificarInauguracao(Equipa nova) {
+		while(true){
+		try {
+		int ano = Integer.parseInt(ler.next());
+		if(ano < 1000 || ano > 9999){
+		System.out.println("Entrada inválida, por favor digite somente números de 4 dígitos");
+		}else{
+		nova.SetInaguracao(ano);
+		break;
+		}
+		} catch (NumberFormatException e) {
+		System.out.println("Entrada inválida, por favor digite somente números de 4 dígitos");
+		}
+		}
+		}
+	
+	private void  VerificarInauguracaoEditada(Equipa equipaEncontrada) {
+		
+		while(true) {
+		    System.out.println("Insira o novo ano da inauguracao:");
+		    String entradaFundacao = ler.next();
+		    try {
+		        int ano = Integer.parseInt(entradaFundacao);
+		        if(entradaFundacao.length() == 4 && ano > 0) {
+		            equipaEncontrada.SetInaguracao(ano);
+		            break;
+		        }
+		        else {
+		            System.out.println("Entrada inválida, por favor digite um número inteiro de 4 dígitos.");
+		        }
+		    } catch(NumberFormatException e) {
+		        System.out.println("Entrada inválida, por favor digite um número inteiro de 4 dígitos.");
+		    }
+		}
+	}
+	
+	
+	private void VerificarVaiMundial(Equipa nova) {
+		String mundial;
+
+		boolean eNumero = true;
+		while(true){
+		    mundial = ler.next();
+		    for (int i = 0; i < mundial.length(); i++) {
+		        if (!Character.isDigit(mundial.charAt(i))) {
+		          eNumero = false;
+		          break;
+		        }
+		    }
+		    if(eNumero || !(mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s") || mundial.equalsIgnoreCase("nao") || mundial.equalsIgnoreCase("n"))){
+		        System.out.println("Entrada inválida, por favor digite somente 'sim' ou 's' ou 'nao' ou 'n'");
+		        eNumero = true;
+		    }else {
+		        break;
+		    }
+		}
+		if (mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s")) {
+		    nova.SetMundial(true);
+		} else {
+		    nova.SetMundial(false);
+		}
+	}
+	
+	private void VerificarAnoInaururacaoNovo(Equipa equipaEncontrada) {
+	    System.out.println("Indique o ano de inauguração:");
+	    int anoInauguracao = ler.nextInt();
+	    while (anoInauguracao < 1000 || anoInauguracao > 9999) {
+	        System.out.println("Ano inválido. Por favor, insira um ano válido com 4 dígitos:");
+	        anoInauguracao = ler.nextInt();
+	    }
+	    equipaEncontrada.SetInaguracao(anoInauguracao);
+	}
+	
+	
 }
