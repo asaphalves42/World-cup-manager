@@ -17,6 +17,11 @@ public class Jogo {
 		this.GolosB = GolosB;
 		this.Eventos = new Evento[100];
 		
+		
+	}
+
+	public Jogo() {
+		super();
 	}
 
 	public int GetId() {
