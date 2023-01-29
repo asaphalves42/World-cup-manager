@@ -5,17 +5,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 import torneio.TF.LP1.*;
 
 /**
- * @author tiago
- *
- */
-/**
- * @author tiago
+ * @author Esc-Engenheiros-sem-curso
  *
  */
 public class Aplicacao {
@@ -29,7 +24,7 @@ public class Aplicacao {
 	 */
 	Torneio torneio = new Torneio();
 	Scanner ler = new Scanner(System.in);
-	String pastaFicheiros = "C:\\Users\\asaph\\Desktop\\testeLP1";
+	String pastaFicheiros = "C:\\aplicacao\\torneio";
 
 	/*
 	 * CONTROLO DE A��ES
@@ -489,7 +484,7 @@ public class Aplicacao {
 
 	private void GravarFicheiros() {
 		try {
-			FileWriter caneta = new FileWriter("C:\\Users\\asaph\\Desktop\\testeLP1\\equipas.txt");
+			FileWriter caneta = new FileWriter(this.pastaFicheiros +"\\equipas.txt");
 			String linha = "";
 
 			if (this.torneio.ContagemEquipas() == 0) {
@@ -500,7 +495,6 @@ public class Aplicacao {
 				for (int i = 0; i < equipas.length; i++) {
 					if (equipas[i] != null) {
 						linha = "";
-
 						linha += equipas[i].GetIdEquipa() + "|";
 						linha += equipas[i].GetNomeEquipa() + "|";
 						linha += equipas[i].GetInaguracao() + "|";

@@ -1,7 +1,5 @@
 package torneio.TF.LP1;
 
-import java.util.Random;
-
 public class Equipa {
 	
 	private String id;
