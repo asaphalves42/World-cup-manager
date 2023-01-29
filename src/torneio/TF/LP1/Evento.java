@@ -36,6 +36,4 @@ public class Evento {
 		return this.Minuto;
 	}
 	
-	
-	
 }

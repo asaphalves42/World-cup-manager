@@ -4,6 +4,5 @@ public enum TipoEvento {
 	CartaoAmarelo,
 	CartaoVermelho,
 	Golo,
-	Faltas,
-	
+	Faltas	
 }

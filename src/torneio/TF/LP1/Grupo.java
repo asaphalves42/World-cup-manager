@@ -10,7 +10,7 @@ public class Grupo {
 		
 		this.Codigo = Codigo;
 		this.Equipas = new Equipa[4];
-		this.Jogos = new Jogo[100];
+		this.Jogos = new Jogo[6];
 	}
 
 	public String GetCodigo() {
@@ -25,13 +25,22 @@ public class Grupo {
 		return this.Jogos;
 	}
 	
+	public Jogo GetJogo(int id) {
+		for(int i = 0; i < this.Jogos.length ; i++) {
+			if (Jogos[i].GetId() == id) {
+				return Jogos[i];
+			}														
+		}
+		return null;
+	}
+	
 	public void AdicionarEquipa (Equipa equipa) {
 		this.Equipas[ContagemEquipas()] = equipa;
 	}
 	
 	public void AdicionarJogo(Equipa equipaA, Equipa equipaB, int golosA, int golosB) {
 		//crio a classe do jogo
-		Jogo jogo = new Jogo(0,equipaA, equipaB, golosA, golosB);
+		Jogo jogo = new Jogo(ContagemJogos()+1,equipaA, equipaB, golosA, golosB);
 		//adiciono o jogo ao array
 		this.Jogos[this.ContagemJogos()] = jogo;
 	}
@@ -47,8 +56,7 @@ public class Grupo {
 		}	
 		return contador;
 	}
-	
-	
+		
 	public int ContagemJogos() {
 		int contador = 0;
 		for(int i=0; i < this.Jogos.length;i++) {
@@ -61,4 +69,20 @@ public class Grupo {
 		return contador;
 	}
 	
+	public int PontosPorEquipa(String idEquipa) {		
+		int pontos = 0 ;
+		for(int i = 0 ; i < this.Jogos.length; i++) {
+			Jogo jogo = Jogos[i];
+			if (jogo.ContagemEventos() > 0) {
+				if (jogo.GetEquipaA().GetIdEquipa().equals(idEquipa) || jogo.GetEquipaB().GetIdEquipa().equals(idEquipa)) {
+					if (jogo.GetGolosA() == jogo.GetGolosB()) {
+						pontos = pontos + 1;
+					}else if (jogo.GetEquipaA().GetIdEquipa().equals(idEquipa) && jogo.GetGolosA() > jogo.GetGolosB()) {
+						pontos = pontos + 3;
+					}
+				}
+			}
+		}
+		return pontos;
+	}
 }

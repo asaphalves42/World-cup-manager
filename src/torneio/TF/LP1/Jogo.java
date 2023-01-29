@@ -48,8 +48,8 @@ public class Jogo {
 		return this.Eventos;
 	}
 	
-	public Boolean AdicionarEvento(TipoEvento tipo, String nomeJogador,String IdEquipa, int minuto) {
-		if (!IdEquipa.equals(EquipaA.GetIdEquipa()) && IdEquipa.equals(EquipaB.GetIdEquipa())) {
+	public Boolean AdicionarEvento(TipoEvento tipo, String IdEquipa, String nomeJogador, int minuto) {
+		if (IdEquipa.equals(EquipaA.GetIdEquipa()) == false && IdEquipa.equals(EquipaB.GetIdEquipa()) == false) {
 			return false;
 		}else {
 			Equipa equipaEvento;
@@ -68,7 +68,7 @@ public class Jogo {
 		}
 	}
 	
-	private int ContagemEventos() {
+	public int ContagemEventos() {
 		//obtem a quantidade de eventos registrados
 		int contador = 0;
 		for(int i = 0; i<this.Eventos.length;i++) {

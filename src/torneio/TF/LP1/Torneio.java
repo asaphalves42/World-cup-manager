@@ -205,7 +205,7 @@ public class Torneio {
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs B
 		
 		System.out.println("Jogo 2");
-		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[1], 0, 0); // A vs C
+		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[2], 0, 0); // A vs C
 		
 		System.out.println("Jogo 3");
 		grupo.AdicionarJogo(grupo.GetEquipas()[0], grupo.GetEquipas()[3], 0, 0); // A vs D
@@ -244,10 +244,10 @@ public class Torneio {
 
 		do {
 
-			System.out.println("## Histórico ##");
-			System.out.println("Selecione uma opção");
-			System.out.println("1. Campeão");
-			System.out.println("2. Vice-campeão");
+			System.out.println("## Histï¿½rico ##");
+			System.out.println("Selecione uma opï¿½ï¿½o");
+			System.out.println("1. Campeï¿½o");
+			System.out.println("2. Vice-campeï¿½o");
 			System.out.println("3. Terceiro lugar");
 			System.out.println("4. Quarto lugar");
 			System.out.println("0. Menu principal");
@@ -264,7 +264,7 @@ public class Torneio {
 			case 4:// Apresentar quarto
 				break;
 			default:
-				System.out.println("Opção inválida");
+				System.out.println("Opï¿½ï¿½o invï¿½lida");
 
 			}
 		} while (opcao != 4);
