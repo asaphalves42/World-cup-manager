@@ -1,4 +1,8 @@
 package torneio.TF.LP1;
+/**
+ * @author Esc-Engenheiros-sem-curso
+ * @version 1.0
+ */
 
 import java.util.Random;
 import java.util.Scanner;
@@ -55,7 +59,7 @@ public class Torneio {
 			if (this.equipas[i] != null) {
 				if (this.equipas[i].GetIdEquipa().equals(id) || encontrei == true) {
 					// encontrei a equipa entao vou colocar o proximo elemento na posicao deste, ou
-					// seja, todos as proximos equipas da lista andam uma casa para tr�s
+					// seja, todos as proximos equipas da lista andam uma casa para tras
 					this.equipas[i] = this.equipas[i + 1];
 					encontrei = true;
 				}
@@ -243,11 +247,14 @@ public class Torneio {
 		int opcao;
 
 		do {
-
-			System.out.println("## Hist�rico ##");
-			System.out.println("Selecione uma op��o");
-			System.out.println("1. Campe�o");
-			System.out.println("2. Vice-campe�o");
+			System.out.println("");
+			System.out.println(" _________________");
+			System.out.println("|    Historico    |");
+			System.out.println("|_________________|");
+			System.out.println("");
+			System.out.println("Selecione uma opcaoo");
+			System.out.println("1. Campeso");
+			System.out.println("2. Vice-campeso");
 			System.out.println("3. Terceiro lugar");
 			System.out.println("4. Quarto lugar");
 			System.out.println("0. Menu principal");
@@ -264,7 +271,7 @@ public class Torneio {
 			case 4:// Apresentar quarto
 				break;
 			default:
-				System.out.println("Op��o inv�lida");
+				System.out.println("Opcao invalida");
 
 			}
 		} while (opcao != 4);

@@ -11,7 +11,7 @@ import torneio.TF.LP1.*;
 
 /**
  * @author Esc-Engenheiros-sem-curso
- *
+ * @version 1.0
  */
 public class Aplicacao {
 
@@ -20,17 +20,25 @@ public class Aplicacao {
 	}
 
 	/*
-	 * Variavies Gerais - Todas as funcões.
+	 * Variavies Gerais - Todas as funcoes.
 	 */
 	Torneio torneio = new Torneio();
 	Scanner ler = new Scanner(System.in);
-	String pastaFicheiros = "C:\\aplicacao\\torneio";
+	String pastaFicheiros = "C:\\\\aplicacao\\\\torneio";
 
 	/*
-	 * CONTROLO DE A��ES
+	 * CONTROLO DE ACOES
 	 */
 	public void Iniciar() {
-		System.out.println(" -<<<< APLICACAO DO MUNDIAL >>>>-");
+		System.out.println("");
+		System.out.println("                                                                    ___\r\n"
+				+ "                                                o__        o__     |   |\\\r\n"
+				+ "                                               /|          /\\      |   |X\\\r\n"
+				+ "                                               / > o        <\\     |   |XX\\");
+		System.out.println("\t\t\t\t _____________________________________________________");
+        System.out.println("\t\t\t\t|           APLICACAO DO MUNDIAL DE FUTEBOL           |");
+        System.out.println("\t\t\t\t|_____________________________________________________|");
+        System.out.println("");
 		// this.LerDadosFicheiros();
 		this.ApresentarMenuPrincipal();
 	}
@@ -39,8 +47,10 @@ public class Aplicacao {
 	public void ApresentarMenuPrincipal() {
 		
 		do {
+			System.out.println(" ______________________");
+			System.out.println("|    MENU PRINCIPAL    |");
+			System.out.println("|______________________|");
 			System.out.println("");
-			System.out.println(" ## MENU PRINCIPAL ##");
 			System.out.println("(Selecione uma opcao)");
 	
 			System.out.println("1. Equipas");
@@ -76,7 +86,10 @@ public class Aplicacao {
 	public void ApresentarMenuEquipas() {
 		do {
 			System.out.println("");
-			System.out.println(" ## EQUIPAS ##");
+			System.out.println(" _______________");
+			System.out.println("|    EQUIPAS    |");
+			System.out.println("|_______________|");
+			System.out.println("");
 			System.out.println("(Selecione uma opcao)");
 	
 			System.out.println("1. Listar equipa");
@@ -117,7 +130,10 @@ public class Aplicacao {
 	public void ApresentarMenuTorneio() {
 		do {
 			System.out.println("");
-			System.out.println(" ## TORNEIO ##");
+			System.out.println(" _______________");
+			System.out.println("|    TORNEIO    |");
+			System.out.println("|_______________|");
+			System.out.println("");
 			System.out.println("(Selecione uma opcao)");
 	
 			System.out.println("1. Gerar Torneio");
@@ -178,16 +194,16 @@ public class Aplicacao {
 					this.ListasTodosGrupos();
 					ApresentarMenuTorneio();
 					break;
-				case 0: ApresentarMenuTorneio();
+				case 0: ApresentarMenuPrincipal();
 					break;
 				default:
 					System.out.println("!!!! opcao invalida !!!!");
-					this.ApresentarMenuEquipas();
+					this.ApresentarMenuPrincipal();
 			}
 		}while(this.ler.nextInt()!=0);
 	}
 
-	// Funcões para gerir o grupo
+	// Funcoes para gerir o grupo
 	public void ApresentarMenuGrupo(String codigoGrupo) {
 		do {
 			System.out.println("");
@@ -268,8 +284,6 @@ public class Aplicacao {
 				
 		System.out.println("Indique o nome  da equipa:");
 		nova.SetNomeEquipa(ler.next());
-		
-		//nova.SetNomeEquipa(ler.nextLine());
 
 		System.out.println("Indique a federacao da equipa:");
 		nova.SetFederacao(ler.next());
@@ -413,7 +427,7 @@ public class Aplicacao {
 					        }
 					    }
 					    if(enumero || !(mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s") || mundial.equalsIgnoreCase("nao") || mundial.equalsIgnoreCase("n"))){
-					        System.out.println("Entrada inválida, por favor digite somente 'sim' ou 's' ou 'nao' ou 'n'");
+					        System.out.println("Entrada invalida, por favor digite somente 'sim' ou 's' ou 'nao' ou 'n'");
 					        enumero = true;
 					    }else {
 					        break;
@@ -497,7 +511,7 @@ public class Aplicacao {
 			
 			
 			System.out.println("Indique o tipo de evento:");
-			System.out.println("1 - Golo, 2 - Cartões Amarelos, 3 - Cartões Vermelhos");
+			System.out.println("1 - Golo, 2 - Cartoes Amarelos, 3 - Cartoes Vermelhos");
 			TipoEvento tipo = null;;
 			while(tipo == null) {
 				switch(ler.nextInt()) {
@@ -511,7 +525,7 @@ public class Aplicacao {
 					tipo = TipoEvento.CartaoVermelho;
 					break;
 				default:
-					System.out.println("Opção invalida\n");
+					System.out.println("Opcao invalida\n");
 					break;
 				}
 			}
@@ -531,7 +545,7 @@ public class Aplicacao {
 					equipa = jogo.GetEquipaB();
 					break;				
 				default:
-					System.out.println("Opção invalida\n");
+					System.out.println("Opcao invalida\n");
 					break;
 				}
 			}
@@ -542,7 +556,7 @@ public class Aplicacao {
 			jogo.AdicionarEvento(tipo, equipa.GetIdEquipa(), jogador, minuto);
 			
 		} else {
-			System.out.println("Jogo não encontrado.");
+			System.out.println("Jogo nao encontrado.");
 		}
 	}
 	/*
@@ -627,13 +641,13 @@ public class Aplicacao {
 			try {
 				int ano = Integer.parseInt(ler.next());
 				if(ano < 1000 || ano > 9999){
-					System.out.println("Entrada inválida, por favor digite somente números de 4 dígitos");
+					System.out.println("Entrada invalida, por favor digite somente números de 4 digitos");
 				} else {
 					nova.SetInaguracao(ano);
 					break;
 				}
 			} catch (NumberFormatException e) {
-				System.out.println("Entrada inválida, por favor digite somente números de 4 dígitos");
+				System.out.println("Entrada invalida, por favor digite somente números de 4 digitos");
 			}
 		}
 	}
@@ -650,10 +664,10 @@ public class Aplicacao {
 		            break;
 		        }
 		        else {
-		            System.out.println("Entrada inválida, por favor digite um número inteiro de 4 dígitos.");
+		            System.out.println("Entrada invalida, por favor digite um número inteiro de 4 digitos.");
 		        }
 		    } catch(NumberFormatException e) {
-		        System.out.println("Entrada inválida, por favor digite um número inteiro de 4 dígitos.");
+		        System.out.println("Entrada invalida, por favor digite um número inteiro de 4 digitos.");
 		    }
 		}
 	}
@@ -672,7 +686,7 @@ public class Aplicacao {
 		        }
 		    }
 		    if(eNumero || !(mundial.equalsIgnoreCase("sim") || mundial.equalsIgnoreCase("s") || mundial.equalsIgnoreCase("nao") || mundial.equalsIgnoreCase("n"))){
-		        System.out.println("Entrada inválida, por favor digite somente 'sim' ou 's' ou 'nao' ou 'n'");
+		        System.out.println("Entrada invalida, por favor digite somente 'sim' ou 's' ou 'nao' ou 'n'");
 		        eNumero = true;
 		    }else {
 		        break;
@@ -686,10 +700,10 @@ public class Aplicacao {
 	}
 	
 	private void VerificarAnoInaururacaoNovo(Equipa equipaEncontrada) {
-	    System.out.println("Indique o ano de inauguração:");
+	    System.out.println("Indique o ano de inauguracao:");
 	    int anoInauguracao = ler.nextInt();
 	    while (anoInauguracao < 1000 || anoInauguracao > 9999) {
-	        System.out.println("Ano inválido. Por favor, insira um ano válido com 4 dígitos:");
+	        System.out.println("Ano invalido. Por favor, insira um ano valido com 4 digitos:");
 	        anoInauguracao = ler.nextInt();
 	    }
 	    equipaEncontrada.SetInaguracao(anoInauguracao);
