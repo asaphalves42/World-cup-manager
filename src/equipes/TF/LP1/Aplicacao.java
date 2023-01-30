@@ -24,7 +24,7 @@ public class Aplicacao {
 	 */
 	Torneio torneio = new Torneio();
 	Scanner ler = new Scanner(System.in);
-	String pastaFicheiros = "C:\\\\aplicacao\\\\torneio";
+	String pastaFicheiros = "C:\\Users\\guts\\Documents\\LP1\\esc-engenheiros-sem-curso";
 
 	/*
 	 * CONTROLO DE ACOES
